@@ -4,7 +4,7 @@ import bodyParser from 'body-parser';
 import { Server } from 'http';
 import router from './routes';
 
-export class SetupApplication{
+export class SetupApp{
     private server?: Server;
 
     constructor(private port = 3000, public app = express()){ }

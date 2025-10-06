@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "build": "tsc",
+    "start": "node src/server.ts"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +20,14 @@
   },
   "dependencies": {
     "body-parser": "^2.2.0",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "module-alias": "^2.2.3"
+  },
+  "comentarios": {
+    "ts-node-dev": "executar codigo em ts em node, sem precisar compilar em js",
+    "respawn assistir": "o projeto restarta com alteracao no codigo",
+    "transpile-only": "traduzir ts para js sem checar os tipos",
+    "build": "compila o projeto",
+    "start": "executa a versao compilada"
   }
 }
