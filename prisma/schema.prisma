@@ -10,7 +10,28 @@ generator client {
 }
 
 datasource db {
-  provider = "sqite"
+  provider = "sqlite"
   // url      = env("DATABASE_URL")
   url = "file:./dev.db"
+}
+
+// Modelo usuário
+model User {
+  id          Int @id @default(autoincrement())
+  email       String @unique
+  name        String
+  password    String
+  tasks       Task[]
+  created_at  DateTime @default(now())
+}
+
+// Modelo task
+model Task {
+  id          Int @id @default(autoincrement())
+  title       String
+  description String
+  completed   Boolean @default(false)
+  author      User @relation(fields: [author_id], references: [id])
+  author_id   Int
+  created_at  DateTime @default(now())
 }

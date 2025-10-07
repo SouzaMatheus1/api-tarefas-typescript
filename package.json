@@ -7,7 +7,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node src/server.ts"
+    "start": "node src/server.ts",
+    "schema:combine": "node combine-prisma-schema.js",
+    "prisma:migrate": "npm run schema:combine && npx prisma migrate dev",
+    "prisma:generate": "npm run schema:combine && npx prisma generate",
+    "prisma:studio": "npm run schema:combine && npx prisma studio"
   },
   "keywords": [],
   "author": "",
