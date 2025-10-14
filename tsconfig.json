@@ -21,15 +21,33 @@
         "allowSyntheticDefaultImports": true,
         "baseUrl": ".",
         "paths": {
+            "@public/*": [
+                "./public/*"
+            ],
             "@src/*": [
                 "./src/*"
+            ],
+            "@controllers/*": [
+                "./src/controllers/*"
+            ],
+            "@database/*": [
+                "./src/database/*"
+            ],
+            "@routes/*": [
+                "./src/routes/*"
+            ],
+            "@services/*": [
+                "./src/services/*"
+            ],
+            "@utils/*": [
+                "./src/utils/*"
             ],
             "@modules/*": [
                 "./src/app/modules/*"
             ],
             "@test/*": [
                 "./test/*"
-            ]
+            ],
         },
         "rootDirs": [
             "./src",
