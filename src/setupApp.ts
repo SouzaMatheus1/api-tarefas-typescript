@@ -7,7 +7,10 @@ import router from '@routes/routes'
 export class SetupApp{
     private server?: Server;
 
-    constructor(private port = 3000, public app = express()){ }
+    constructor(
+        private port = 3000, 
+        public app = express()
+    ){ }
 
     public init() : void {
         this.setupExpress();

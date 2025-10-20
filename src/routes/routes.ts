@@ -1,11 +1,15 @@
 import { Router } from 'express';
 import path from 'path';
+import userRoutes from './userRoutes';
 
 class Routes {
     static define(router: Router): Router {
+        // Adiciona as rotas de usuário sob o prefixo /api
+        router.use('/api', userRoutes);
+
         router.use('/', (req, res) => {
             // res.send('Hello world!');
-            res.sendFile(path.join(__dirname, '../../public/index.html'))
+            res.sendFile(path.join(__dirname, '../../../public/index.html'))
         });
 
         return router;
