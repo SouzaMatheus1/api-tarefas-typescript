@@ -5,6 +5,20 @@ import bcrypt from 'bcryptjs';
 type UserCreationData = Omit<User, 'id' | 'created_at'>;
 type UserData = Omit<User, 'password'>;
 
+export const getAllService = async (): Promise<UserData[]> => {
+    const users = await prismaClient.user.findMany();
+
+    return users;
+}
+
+export const getByIdService = async (id: number): Promise<UserData | null> => {
+    const user = await prismaClient.user.findUnique({
+        where: { id: Number(id) }
+    });
+
+    return user;
+}
+
 export const createUserService = async (userData: UserCreationData): Promise<UserData> => {
     const hashPass = await bcrypt.hash(userData.password, 10);
 
@@ -19,16 +33,19 @@ export const createUserService = async (userData: UserCreationData): Promise<Use
     return userWithoutPassword;
 }
 
-export const getAllService = async (): Promise<UserData[]> => {
-    const users = await prismaClient.user.findMany();
+export const updateUserService = async (id: number, userData: Partial<UserCreationData>): Promise<UserData | null> => {
+    const newData: Partial<UserCreationData> = { ...userData };
+    const user = await getByIdService(id);
 
-    return users;
-}
+    if(!user){
+        console.log('Usuário não encontrado!');
+    }
 
-export const getByIdService = async (id: number): Promise<UserData | null> => {
-    const user = await prismaClient.user.findUnique({
-        where: { id: Number(id) }
+    const updateUser = await prismaClient.user.update({
+        where: { id: id },
+        data: newData
     });
 
-    return user;
+    const { ...updatedUser } = updateUser;
+    return updateUser;
 }
