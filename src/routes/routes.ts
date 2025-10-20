@@ -9,7 +9,7 @@ class Routes {
 
         router.use('/', (req, res) => {
             // res.send('Hello world!');
-            res.sendFile(path.join(__dirname, '../../../public/index.html'))
+            res.sendFile(path.join(__dirname, '../../public/index.html'))
         });
 
         return router;
