@@ -13,10 +13,14 @@
     "prisma:generate": "npm run schema:combine && npx prisma generate",
     "prisma:studio": "npm run schema:combine && npx prisma studio"
   },
+  "prisma": {
+    "seed": "ts-node prisma/userSeeder.ts"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^10.1.0",
     "@types/express": "^5.0.3",
     "@types/module-alias": "^2.0.4",
     "prisma": "^6.16.3",
