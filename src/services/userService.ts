@@ -46,6 +46,15 @@ export const updateUserService = async (id: number, userData: Partial<UserCreati
         data: newData
     });
 
-    const { ...updatedUser } = updateUser;
-    return updateUser;
+    const { password, ...userWithoutPassword } = updateUser;
+    return userWithoutPassword;
+}
+
+export const deleteUserService = async (id: number) => {
+    const deletedUser = await prismaClient.user.delete({
+        where: { id: id }
+    })
+
+    const { password, ...userWithoutPassword } = deletedUser;
+    return userWithoutPassword;
 }
