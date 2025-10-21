@@ -16,21 +16,24 @@ datasource db {
 
 // Modelo usuário
 model User {
-  id          Int @id @default(autoincrement())
-  email       String @unique
-  name        String
-  password    String
-  tasks       Task[]
-  created_at  DateTime @default(now())
+  id                Int     @id @default(autoincrement())
+  email             String  @unique
+  name              String
+  password          String
+  created_tasks     Task[]  @relation("CreatedTasks")
+  attributed_tasks  Task[]  @relation("AttributedTasks")
+  created_at  DateTime      @default(now())
 }
 
 // Modelo task
 model Task {
-  id          Int @id @default(autoincrement())
-  title       String
-  description String
-  completed   Boolean @default(false)
-  author      User @relation(fields: [author_id], references: [id])
-  author_id   Int
-  created_at  DateTime @default(now())
+  id              Int       @id @default(autoincrement())
+  title           String
+  description     String
+  completed       Boolean   @default(false)
+  author          User      @relation("CreatedTasks", fields: [author_id], references: [id])
+  author_id       Int
+  attributed_for  User?     @relation("AttributedTasks", fields: [attributed_id], references: [id])
+  attributed_id   Int?
+  created_at      DateTime  @default(now())
 }
