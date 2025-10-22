@@ -8,7 +8,7 @@ export class SetupApp{
     private server?: Server;
 
     constructor(
-        private port = 3000, 
+        private port = process.env.PORT, 
         public app = express()
     ){ }
 
