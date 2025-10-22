@@ -11,7 +11,10 @@
     "schema:combine": "node combine-prisma-schema.js",
     "prisma:migrate": "npm run schema:combine && npx prisma migrate dev",
     "prisma:generate": "npm run schema:combine && npx prisma generate",
-    "prisma:studio": "npm run schema:combine && npx prisma studio"
+    "prisma:studio": "npm run schema:combine && npx prisma studio",
+    "db:seed:users": "ts-node prisma/userSeeder.ts",
+    "db:seed:tasks": "ts-node prisma/taskSeeder.ts",
+    "db:seed:all": "npm run db:seed:users && npm run db:seed:tasks"
   },
   "prisma": {
     "seed": "ts-node prisma/userSeeder.ts"

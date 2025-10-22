@@ -1,13 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API de Tarefas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestão de Tarefas</title>
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  
+  <script src="index.js" defer></script>
 </head>
+
 <body>
-    <h1>Bem-vindo à API de Tarefas!</h1>
-    <p>O servidor está funcionando corretamente.</p>
+  <main class="container">
+    <nav>
+      <ul>
+        <li><a href="/users.html">Voltar para Usuários</a></li>
+      </ul>
+    </nav>
+
+    <header>
+      <h1 style="display: inline-block;">Gestão de Tarefas</h1>
+      <button id="new-task-btn">+ Nova Tarefa</button>
+    </header>
+
+    <article>
+      <h2>Minhas Tarefas</h2>
+      <div class="overflow-auto">
+        <table role="grid">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Descrição</th>
+              <th>Atribuída Para</th>
+              <th>Completa?</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody id="task-list-tbody">
+            <tr>
+              <td colspan="6"><progress></progress></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+
+  <dialog id="task-modal">
+    <article>
+      <header>
+        <button aria-label="Fechar" rel="prev" id="close-modal-btn"></button>
+        <h2 id="modal-title">Nova Tarefa</h2>
+      </header>
+
+      <form id="task-form">
+        <input type="hidden" id="task-id">
+
+        <label for="task-title">Título</label>
+        <input type="text" id="task-title" name="title" required>
+
+        <label for="task-description">Descrição</label>
+        <textarea id="task-description" name="description" rows="3" required></textarea>
+
+        <div class="grid">
+          <label for="task-author">
+            Autor (Quem criou)
+            <select id="task-author" name="author_id" required>
+              <option value="" disabled selected>Carregando...</option>
+              </select>
+          </label>
+          <label for="task-attributed">
+            Atribuir para
+            <select id="task-attributed" name="attributed_id">
+              <option value="">Ninguém (Opcional)</option>
+              </select>
+          </label>
+        </div>
+
+        <label for="task-completed">
+          <input type="checkbox" id="task-completed" name="completed">
+          Tarefa Completa
+        </label>
+
+        <footer>
+          <button type="submit" id="save-task-btn">Salvar</button>
+        </footer>
+      </form>
+    </article>
+  </dialog>
 </body>
 </html>
-

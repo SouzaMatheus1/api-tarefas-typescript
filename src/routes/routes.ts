@@ -9,10 +9,10 @@ class Routes {
         router.use('/api', userRoutes);
         router.use('/api', taskRoutes);
 
-        router.use('/', (req, res) => {
-            // res.send('Hello world!');
-            res.sendFile(path.join(__dirname, '../../public/index.html'))
-        });
+        // router.get('/', (req, res) => {
+        //     // res.send('Hello world!');
+        //     res.sendFile(path.join(__dirname, '../../public/index.html'))
+        // });
 
         return router;
     }
