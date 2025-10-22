@@ -1,5 +1,4 @@
 import { Router } from 'express';
-import path from 'path';
 import userRoutes from './userRoutes';
 import taskRoutes from './taskRoutes';
 

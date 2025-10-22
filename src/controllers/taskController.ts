@@ -1,6 +1,6 @@
-import e, { 
-    Request, 
-    Response 
+import e, {
+    Request,
+    Response
 } from "express";
 
 import * as taskService from "@services/taskService";

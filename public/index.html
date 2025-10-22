@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestão de Tarefas</title>
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" />
-  <link rel="stylesheet" href="style.css" />
-  
-  <script src="index.js" defer></script>
+  <link rel="stylesheet" href="css/style.css" />
+
+  <script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
     </nav>
 
     <header>
-      <h1 style="display: inline-block;">Gestão de Tarefas</h1>
+      <h1 >Gestão de Tarefas</h1>
       <button id="new-task-btn">+ Nova Tarefa</button>
     </header>
 
@@ -69,13 +70,13 @@
             Autor (Quem criou)
             <select id="task-author" name="author_id" required>
               <option value="" disabled selected>Carregando...</option>
-              </select>
+            </select>
           </label>
           <label for="task-attributed">
             Atribuir para
             <select id="task-attributed" name="attributed_id">
               <option value="">Ninguém (Opcional)</option>
-              </select>
+            </select>
           </label>
         </div>
 
@@ -91,4 +92,5 @@
     </article>
   </dialog>
 </body>
+
 </html>

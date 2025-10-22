@@ -1,0 +1,39 @@
+#new-task-btn {
+    float: right;
+    margin-top: 1.5rem;
+}
+
+#cancel-button {
+    display: none;
+}
+
+h1 {
+    display: inline-block;
+}
+
+input[type=email] {
+    text-transform: lowercase;
+}
+
+.login-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-color: var(--pico-secondary-background);
+}
+
+.login-article {
+    max-width: 450px;
+    width: 100%;
+    padding: 2rem;
+}
+
+#forgot-password {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}

@@ -1,4 +1,4 @@
-import { Task, User } from '@prisma/client';
+import { Task } from '@prisma/client';
 import prismaClient from '@database/prismaClient';
 
 export const getAllService = async (): Promise<Task[]> => {

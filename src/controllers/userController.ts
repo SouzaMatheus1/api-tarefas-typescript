@@ -4,6 +4,22 @@ import {
 } from "express";
 
 import * as userService from "@services/userService";
+import { loginService } from "@src/services/loginService";
+
+export const login = async (req: Request, res: Response) => {
+    try {
+        const { email, password } = req.body;
+
+        if(!email || !password)
+            return res.status(400).json({ message: "Email e senha sao obrigatorios" });
+
+        const response = await loginService(email, password);
+
+        return res.status(200).json(response);
+    } catch (error) {
+        return res.status(500).json({ message: "Email ou senha inválida." });
+    }
+}
 
 export const getAll = async (req: Request, res: Response) => {
     try {
